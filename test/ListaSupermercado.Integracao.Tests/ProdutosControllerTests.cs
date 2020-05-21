@@ -14,14 +14,17 @@ namespace ListaSupermercado.Integracao.Tests {
         }
 
         [Theory]
-        [InlineData ("/app/v1/produtos")]
+        [InlineData ("/api/v1/produtos")]
         public async Task DeveretornarNenhumproduto (string url) {
             var client = _factory.CreateClient ();
+            string resultadoEspererado = "{}";
 
             var response = await client.GetAsync (url);
-
+            
             response.EnsureSuccessStatusCode (); // Status Code 200-299
 
+            string body = await response.Content.ReadAsStringAsync();
+            Assert.Equal(resultadoEspererado, body);
             return;
         }
     }
