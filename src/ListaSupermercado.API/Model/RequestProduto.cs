@@ -1,6 +1,6 @@
 using System;
 
-namespace ListaSupermercado.Application.Model
+namespace ListaSupermercado.API.Model
 {
     public class RequestProduto
     {

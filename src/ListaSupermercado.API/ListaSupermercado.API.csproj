@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ListaSupermercado.Application\ListaSupermercado.Application.csproj" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NSwag.AspNetCore" Version="13.5.0" />
+    <ProjectReference Include="..\ListaSupermercado.Application\ListaSupermercado.Application.csproj" />
   </ItemGroup>
 
 </Project>
