@@ -9,7 +9,9 @@ namespace Listasupermercado.Infrastructure.Repository
     public interface IProdutoRepository
     {
 
-        Task CriarProduto(ProdutoEntity produtoEntity);
+        Task<int> CriarProduto(ProdutoEntity produtoEntity);
+
+        Task<ProdutoEntity> ObterProduto(int idProduto);
 
     }
 }

@@ -10,6 +10,11 @@ namespace ListaSupermercado.Domain.Entity
         {
             Nome = nome;
         }
-        public string Nome { get; }
+        public ProdutoEntity()
+        {
+
+        }
+        public int Id { get; set; }
+        public string Nome { get; set; }
     }
 }

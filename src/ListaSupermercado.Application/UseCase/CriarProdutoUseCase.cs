@@ -13,13 +13,14 @@ namespace ListaSupermercado.Application.UseCase
         {
             _repoProduto = repoProduto;
         }
-        public async Task<bool> ExecuteAsync(RequestProduto produto)
+        public async Task<ResponseProduto> ExecuteAsync(RequestProduto produto)
         {
             ProdutoEntity produtoEntity = new ProdutoEntity(produto.Nome);
 
-            await _repoProduto.CriarProduto(produtoEntity);
+           int IdCriado = await _repoProduto.CriarProduto(produtoEntity);
 
-            return false;
+
+           return new ResponseProduto() { Id = IdCriado, Nome = produto.Nome};
 
         }
     }

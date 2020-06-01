@@ -14,7 +14,8 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "CONNECTIONSTRING": "Password=teste123;Persist Security Info=True;User ID=sa;Initial Catalog=ListaSupermercadoDb;Data Source=DESKTOP-OI3NRP1"
       }
     },
     "ListaSupermercado.API": {

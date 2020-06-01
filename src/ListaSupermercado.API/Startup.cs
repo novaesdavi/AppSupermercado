@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Listasupermercado.Infrastructure.Repository;
+using ListaSupermercado.Application.UseCase;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace ListaSupermercado.API
 {
@@ -25,9 +21,19 @@ namespace ListaSupermercado.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddDbContext<ProdutoRepository>(opt => {
+                opt.UseSqlServer(Configuration.GetConnectionString("ConexaoApp"));
+            });
 
+            
+
+            services.AddControllers();
+            
             services.AddSwaggerDocument();
+            services.AddTransient<CriarProdutoUseCase, CriarProdutoUseCase>();
+            services.AddTransient<ObterProdutoUseCase, ObterProdutoUseCase>();
+            services.AddTransient<IProdutoRepository, ProdutoRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +44,7 @@ namespace ListaSupermercado.API
                 app.UseDeveloperExceptionPage();
             }
 
-
+            
 
             app.UseHttpsRedirection();
 
