@@ -1,3 +1,5 @@
+using CorrelationId;
+using CorrelationId.DependencyInjection;
 using Listasupermercado.Infrastructure.Repository;
 using ListaSupermercado.Application.UseCase;
 using Microsoft.AspNetCore.Builder;
@@ -25,7 +27,19 @@ namespace ListaSupermercado.API
                 opt.UseSqlServer(Configuration.GetConnectionString("ConexaoApp"));
             });
 
-            
+            // Example of adding default correlation ID (using the GUID generator) services
+            // As shown here, options can be configured via the configure degelate overload
+            services.AddDefaultCorrelationId(options =>
+            {
+                //options.CorrelationIdGenerator = () => "Foo";
+                options.AddToLoggingScope = true;
+                options.EnforceHeader = false;
+                options.IgnoreRequestHeader = false;
+                options.IncludeInResponse = true;
+                options.RequestHeader = "X-Correlation-Id";
+                options.ResponseHeader = "X-Correlation-Id";
+                options.UpdateTraceIdentifier = false;
+            });
 
             services.AddControllers();
             
@@ -51,6 +65,8 @@ namespace ListaSupermercado.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCorrelationId();
 
             app.UseEndpoints(endpoints =>
             {

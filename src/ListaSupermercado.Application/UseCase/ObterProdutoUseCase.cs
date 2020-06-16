@@ -17,7 +17,7 @@ namespace ListaSupermercado.Application.UseCase
         {
 
            var produtoEntity = await _repoProduto.ObterProduto(idProduto);
-
+            
 
            return new ResponseProduto() { Id = produtoEntity.Id , Nome = produtoEntity.Nome};
 

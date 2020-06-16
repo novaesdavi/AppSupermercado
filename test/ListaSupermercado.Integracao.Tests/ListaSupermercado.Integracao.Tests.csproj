@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ListaSupermercado.API\ListaSupermercado.API.csproj" />
+    <ProjectReference Include="..\..\src\ListaSupermercado.Application\ListaSupermercado.Application.csproj" />
   </ItemGroup>
 
 </Project>

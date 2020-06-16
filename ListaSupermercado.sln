@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListaSupermercado.Applicati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListaSupermercado.Domain", "src\ListaSupermercado.Domain\ListaSupermercado.Domain.csproj", "{504EFA45-03FB-419E-A446-E94AF9747FA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listasupermercado.Infrastructure", "Listasupermercado.InfraStructure\Listasupermercado.Infrastructure.csproj", "{61BE4A32-5400-42F7-BD05-8E6287618F17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listasupermercado.Infrastructure", "src\Listasupermercado.InfraStructure\Listasupermercado.Infrastructure.csproj", "{61BE4A32-5400-42F7-BD05-8E6287618F17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
