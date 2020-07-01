@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Listasupermercado.Infrastructure.Context;
@@ -7,22 +8,29 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Listasupermercado.Infrastructure.Repository
 {
-    public class ProdutoRepository : DbContext, IProdutoRepository
+    public class ProdutoRepository : IProdutoRepository
     {
-
-        public ProdutoRepository(DbContextOptions<ProdutoRepository> options) : base(options) {  }
-        public DbSet<ProdutoEntity> Produtos { get; set; }
+        BaseContext _context;
+        public ProdutoRepository(BaseContext context)
+        {
+            _context = context;
+        }
 
         public async Task<int> CriarProduto(ProdutoEntity produtoEntity)
         {
-            Produtos.Add(produtoEntity);
-            await base.SaveChangesAsync();
+            _context.Produtos.Add(produtoEntity);
+            await _context.SaveChangesAsync();
             return produtoEntity.Id;
         }
 
         public async Task<ProdutoEntity> ObterProduto(int idProduto)
         {
-            return await Produtos.AsNoTracking().FirstOrDefaultAsync(w => w.Id == idProduto);
+            return await _context.Produtos.AsNoTracking().FirstOrDefaultAsync(w => w.Id == idProduto);
+        }
+
+        public async Task<IEnumerable<ProdutoEntity>> ObterTodos()
+        {
+            return await _context.Produtos.ToListAsync();
         }
     }
 }

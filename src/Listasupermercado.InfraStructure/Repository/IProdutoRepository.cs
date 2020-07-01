@@ -13,5 +13,7 @@ namespace Listasupermercado.Infrastructure.Repository
 
         Task<ProdutoEntity> ObterProduto(int idProduto);
 
+        Task<IEnumerable<ProdutoEntity>> ObterTodos();
+
     }
 }

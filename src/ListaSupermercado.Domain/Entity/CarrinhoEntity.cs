@@ -4,17 +4,16 @@ using System.Text;
 
 namespace ListaSupermercado.Domain.Entity
 {
-    public class ProdutoEntity
+    public class CarrinhoEntity
     {
-        public ProdutoEntity(string nome)
+        public CarrinhoEntity(string nome)
         {
             Nome = nome;
         }
-        public ProdutoEntity()
+        public CarrinhoEntity()
         {
 
         }
-
         public int Id { get; set; }
         public string Nome { get; set; }
 

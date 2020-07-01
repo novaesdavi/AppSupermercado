@@ -32,6 +32,12 @@ namespace ListaSupermercado.API.Controllers
             return Ok(item);
         }
 
+        public async Task<IActionResult> GetTodos()
+        {
+            var item = await _obterProdutoUseCase.ExecuteAsync();
+            return Ok(item);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] RequestProduto produto)
         {

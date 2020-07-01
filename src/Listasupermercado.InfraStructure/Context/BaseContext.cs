@@ -6,27 +6,22 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
+using Listasupermercado.Infrastructure.Repository;
 
 namespace Listasupermercado.Infrastructure.Context
 {
-    public class BaseContext /*: DbContext*/
+    public class BaseContext : DbContext
     {
-        //private readonly IConfiguration config;
-        //public BaseContext(IConfiguration config)
-        //{
-        //    this.config = config;
-        //}
-        //public BaseContext()
-        //{
+        public BaseContext(DbContextOptions<BaseContext> options) : base(options) { }
+        public DbSet<CarrinhoEntity> Carrinhos { get; set; }
+        public DbSet<ProdutoEntity> Produtos { get; set; }
+        public DbSet<ItemCarrinhoEntity> ItensCarrinhos { get; set; }
 
-        //}
-        //public DbSet<ProdutoEntity> Produtos { get; set; }
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-        //    optionsBuilder.UseSqlServer(config["Data:ConnectionStrings:ConexaoApp"]);
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-        //optionsBuilder.UseSqlServer("Password=teste123;Persist Security Info=True;User ID=sa;Initial Catalog=ListaSupermercadoDb;Data Source=DESKTOP-OI3NRP1");
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ItemCarrinhoEntity>(entity => {
+                entity.HasKey(e => new { e.CarrinhoId, e.ProdutoId });
+            });
+        }
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ListaSupermercado.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class CarrinhoController : ControllerBase
     {

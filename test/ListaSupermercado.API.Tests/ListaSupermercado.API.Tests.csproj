@@ -13,4 +13,12 @@
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UseCase\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ListaSupermercado.Domain\ListaSupermercado.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

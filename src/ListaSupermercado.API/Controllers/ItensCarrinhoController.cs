@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ListaSupermercado.API.Controllers
 {
-    [Route("api/Carrinho/[controller]")]
+    [Route("api/v1/Carrinho")]
     [ApiController]
     public class ItensCarrinhoController : ControllerBase
     {
@@ -27,7 +27,7 @@ namespace ListaSupermercado.API.Controllers
         }
 
 
-        [HttpGet("{idCarrinho}", Name = "GetItensCarrinho")]
+        [HttpGet("{idCarrinho}/[controller]", Name = "GetItensCarrinho")]
         public async Task<IActionResult> GetItensCarrinho(int idCarrinho)
         {
             var carrinhoEntity = await _obterItensCarrinhoUseCase.ExecuteAsync(idCarrinho);
@@ -35,7 +35,7 @@ namespace ListaSupermercado.API.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost("[controller]")]
         public async Task<IActionResult> Post([FromBody] RequestAdicionarItensCarrinho value)
         {
             await _itemCarrinhoUseCase.ExecuteAsync(value);
