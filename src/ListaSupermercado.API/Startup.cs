@@ -1,5 +1,6 @@
 using CorrelationId;
 using CorrelationId.DependencyInjection;
+using Listasupermercado.Infrastructure.Context;
 using Listasupermercado.Infrastructure.Repository;
 using ListaSupermercado.Application.UseCase;
 using Microsoft.AspNetCore.Builder;
@@ -23,9 +24,10 @@ namespace ListaSupermercado.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ProdutoRepository>(opt => {
+            services.AddDbContext<BaseContext>(opt => {
                 opt.UseSqlServer(Configuration.GetConnectionString("ConexaoApp"));
             });
+;
 
             // Example of adding default correlation ID (using the GUID generator) services
             // As shown here, options can be configured via the configure degelate overload
@@ -41,12 +43,24 @@ namespace ListaSupermercado.API
                 options.UpdateTraceIdentifier = false;
             });
 
-            services.AddControllers();
-            
-            services.AddSwaggerDocument();
+
             services.AddTransient<CriarProdutoUseCase, CriarProdutoUseCase>();
             services.AddTransient<ObterProdutoUseCase, ObterProdutoUseCase>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
+
+            services.AddTransient<CriarCarrinhoUseCase, CriarCarrinhoUseCase>();
+            services.AddTransient<ObterCarrinhoUseCase, ObterCarrinhoUseCase>();
+            services.AddTransient<ObterTodosCarrinhosUseCase, ObterTodosCarrinhosUseCase>();
+            services.AddTransient<IncluirItemCarrinhoUseCase, IncluirItemCarrinhoUseCase>();
+            services.AddTransient<ObterItensCarrinhoUseCase, ObterItensCarrinhoUseCase>();
+
+
+            services.AddTransient<ICarrinhoRepository, CarrinhoRepository>();
+
+            services.AddTransient<BaseContext, BaseContext>();
+
+            services.AddControllers();
+            services.AddSwaggerDocument();
 
         }
 
