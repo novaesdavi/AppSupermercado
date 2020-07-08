@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Listasupermercado.Infrastructure.Repository
+namespace ListaSupermercado.Application.IRepository
 {
     public interface ICarrinhoRepository
     {

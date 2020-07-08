@@ -1,9 +1,6 @@
-﻿using Listasupermercado.Infrastructure.Repository;
+﻿using ListaSupermercado.Application.IRepository;
 using ListaSupermercado.Application.Model;
-using ListaSupermercado.Domain.Entity;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ListaSupermercado.Application.UseCase

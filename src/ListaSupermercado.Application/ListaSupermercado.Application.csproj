@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Listasupermercado.InfraStructure\Listasupermercado.Infrastructure.csproj" />
+    <PackageReference Include="Flunt" Version="1.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ListaSupermercado.Domain\ListaSupermercado.Domain.csproj" />
   </ItemGroup>
 

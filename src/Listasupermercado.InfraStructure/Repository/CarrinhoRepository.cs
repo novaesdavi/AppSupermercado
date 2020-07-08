@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Listasupermercado.Infrastructure.Context;
+using ListaSupermercado.Application.IRepository;
 using ListaSupermercado.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 

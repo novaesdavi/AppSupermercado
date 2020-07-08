@@ -7,6 +7,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using Listasupermercado.Infrastructure.Repository;
+using Flunt.Notifications;
 
 namespace Listasupermercado.Infrastructure.Context
 {
@@ -22,6 +23,8 @@ namespace Listasupermercado.Infrastructure.Context
             modelBuilder.Entity<ItemCarrinhoEntity>(entity => {
                 entity.HasKey(e => new { e.CarrinhoId, e.ProdutoId });
             });
+
+            modelBuilder.Ignore<Notification>();
         }
     }
 }

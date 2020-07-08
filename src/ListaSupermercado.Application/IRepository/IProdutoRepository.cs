@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Listasupermercado.Infrastructure.Repository
+namespace ListaSupermercado.Application.IRepository
 {
     public interface IProdutoRepository
     {
 
-        Task<int> CriarProduto(ProdutoEntity produtoEntity);
+        Task<ProdutoEntity> CriarProduto(ProdutoEntity produtoEntity);
 
         Task<ProdutoEntity> ObterProduto(int idProduto);
 

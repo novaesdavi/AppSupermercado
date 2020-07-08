@@ -1,4 +1,4 @@
-﻿using Listasupermercado.Infrastructure.Repository;
+﻿using ListaSupermercado.Application.IRepository;
 using ListaSupermercado.Application.Model;
 using ListaSupermercado.Domain.Entity;
 using System.Collections.Generic;

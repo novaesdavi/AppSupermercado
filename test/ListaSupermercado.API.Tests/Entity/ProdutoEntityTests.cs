@@ -13,7 +13,7 @@ namespace ListaSupermercado.API.Tests.Entity
         public void PreencheEntidade()
         {
             int arrange = 0;
-            ProdutoEntity produtoArrange = new ProdutoEntity() { Id = 1, Nome = "Davi" };
+            ProdutoEntity produtoArrange = new ProdutoEntity("Davi");
             ProdutoEntity produtoAssert = new ProdutoEntity("Davi");
 
             Assert.Equal(produtoArrange.Nome, produtoAssert.Nome);

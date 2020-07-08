@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Listasupermercado.Infrastructure.Context;
+using ListaSupermercado.Application.IRepository;
 using ListaSupermercado.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,16 +16,23 @@ namespace Listasupermercado.Infrastructure.Repository
             _context = context;
         }
 
-        public async Task<int> CriarProduto(ProdutoEntity produtoEntity)
+        public async Task<ProdutoEntity> CriarProduto(ProdutoEntity produtoEntity)
         {
+            if (_context.Produtos.Any(a => a.Nome == produtoEntity.Nome))
+            {
+                return produtoEntity;
+            }
+
             _context.Produtos.Add(produtoEntity);
             await _context.SaveChangesAsync();
-            return produtoEntity.Id;
+            
+            return produtoEntity;
+
         }
 
         public async Task<ProdutoEntity> ObterProduto(int idProduto)
         {
-            return await _context.Produtos.AsNoTracking().FirstOrDefaultAsync(w => w.Id == idProduto);
+            return await _context.Produtos.FirstOrDefaultAsync(w => w.Id == idProduto);
         }
 
         public async Task<IEnumerable<ProdutoEntity>> ObterTodos()

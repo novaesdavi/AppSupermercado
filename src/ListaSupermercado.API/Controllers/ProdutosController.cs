@@ -26,7 +26,7 @@ namespace ListaSupermercado.API.Controllers
         }
 
         [HttpGet("{id_produto}")]
-        public async Task<IActionResult> Get([FromRoute(Name ="id_produto")] int id)
+        public async Task<IActionResult> Get([FromRoute(Name = "id_produto")] int id)
         {
             var item = await _obterProdutoUseCase.ExecuteAsync(id);
             return Ok(item);
@@ -42,7 +42,9 @@ namespace ListaSupermercado.API.Controllers
         public async Task<IActionResult> Post([FromBody] RequestProduto produto)
         {
             var produtoCriado = await _criarProdutoUseCase.ExecuteAsync(produto);
+
             return Created("/produtos", produtoCriado);
+
         }
     }
 }
