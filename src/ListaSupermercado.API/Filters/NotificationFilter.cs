@@ -16,9 +16,9 @@ namespace ListaSupermercado.API.Filters
             _fluntcontext = fluntcontext;
         }
 
-        public Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
+        public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
         {
-            throw new NotImplementedException();
+            await next();
         }
     }
 }

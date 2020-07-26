@@ -12,6 +12,8 @@ using FluentValidation;
 using ListaSupermercado.API.Filters;
 using FluentValidation.AspNetCore;
 using ListaSupermercado.Application.Filters;
+using AutoMapper;
+using ListaSupermercado.Application.Mapper;
 
 namespace ListaSupermercado.API
 {
@@ -46,7 +48,7 @@ namespace ListaSupermercado.API
                 options.ResponseHeader = "X-Correlation-Id";
                 options.UpdateTraceIdentifier = false;
             });
-
+            
             services.AddRegitry();
             services.AddFluntNotificationContext();
             services.AddMvc(options =>
@@ -59,7 +61,8 @@ namespace ListaSupermercado.API
             {
                 options.RegisterValidatorsFromAssemblyContaining<Startup>();
             });
-
+            services.AddAutoMapper(typeof(MapperGeral));
+            //Mapper.AssertConfigurationIsValid();
             services.AddControllers();
             services.AddSwaggerDocument();
 
