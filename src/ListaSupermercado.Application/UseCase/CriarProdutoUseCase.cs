@@ -3,18 +3,20 @@ using ListaSupermercado.Domain.Entity;
 using System.Threading.Tasks;
 using ListaSupermercado.Application.IRepository;
 using ListaSupermercado.Application.Filters;
+using AutoMapper;
 
 namespace ListaSupermercado.Application.UseCase
 {
     public class CriarProdutoUseCase
     {
-
         private IProdutoRepository _repoProduto;
         INotificationContext _fluntcontext;
-        public CriarProdutoUseCase(IProdutoRepository repoProduto, INotificationContext fluntcontext)
+        private readonly IMapper _mapper;
+        public CriarProdutoUseCase(IProdutoRepository repoProduto, INotificationContext fluntcontext, IMapper mapper)
         {
             _repoProduto = repoProduto;
             _fluntcontext = fluntcontext;
+            _mapper = mapper;
         }
         public async Task<ResponseProduto> ExecuteAsync(RequestProduto produto)
         {
@@ -28,8 +30,7 @@ namespace ListaSupermercado.Application.UseCase
                 return null;
             }
 
-            return new ResponseProduto() { Id = produtoIncluido.Id, Nome = produtoIncluido.Nome };
-
+            return _mapper.Map<ResponseProduto>(produtoIncluido);
         }
     }
 

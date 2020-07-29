@@ -20,9 +20,6 @@ namespace ListaSupermercado.Application.UseCase
         {
             CarrinhoEntity carrinho = new CarrinhoEntity(request.Nome);
             await carrinhoRepo.CriarCarrinho(carrinho);
-
-            //mapper.Map<ResponsePostCarrinho>(carrinho);
-
             return mapper.Map<ResponsePostCarrinho>(carrinho);
         }
     }

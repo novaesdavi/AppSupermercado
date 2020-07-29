@@ -1,4 +1,5 @@
-﻿using ListaSupermercado.Application.IRepository;
+﻿using AutoMapper;
+using ListaSupermercado.Application.IRepository;
 using ListaSupermercado.Application.Model;
 using System.Threading.Tasks;
 
@@ -8,20 +9,19 @@ namespace ListaSupermercado.Application.UseCase
     {
 
         private ICarrinhoRepository _repoCarrinho;
-        public ObterCarrinhoUseCase(ICarrinhoRepository repoCarrinho)
+        private readonly IMapper _mapper;
+
+        public ObterCarrinhoUseCase(ICarrinhoRepository repoCarrinho, IMapper mapper)
         {
             _repoCarrinho = repoCarrinho;
+            _mapper = mapper;
         }
         public async Task<ResponseCarrinho> ExecuteAsync(int idProduto)
         {
 
             var carrinhoEntity = await _repoCarrinho.ObterCarrinho(idProduto);
 
-            ResponseCarrinho responseItem = new ResponseCarrinho();
-            responseItem.Id = carrinhoEntity.Id;
-            responseItem.Nome = carrinhoEntity.Nome;
-
-            return responseItem;
+            return _mapper.Map<ResponseCarrinho>(carrinhoEntity);
         }
     }
 
