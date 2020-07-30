@@ -42,7 +42,7 @@ namespace ListaSupermercado.API.Controllers
         public async Task<IActionResult> Post([FromBody] RequestProduto produto)
         {
             var produtoCriado = await _criarProdutoUseCase.ExecuteAsync(produto);
-
+            
             return Created("/produtos", produtoCriado);
 
         }

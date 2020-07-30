@@ -24,24 +24,6 @@ namespace ListaSupermercado.Application.UseCase
 
             return _mapper.Map<ResponseItensCarrinho>(carrinhoEntity);
 
-            //ResponseItensCarrinho responseItens = new ResponseItensCarrinho();
-            //responseItens.Id = carrinhoEntity.Id;
-            //responseItens.Nome = carrinhoEntity.Nome;
-            //var produtos = new List<ResponseItensCarrinhoProduto>();
-
-            //foreach (var item in carrinhoEntity.ItensCarrinhos)
-            //{
-            //    var produto = new ResponseItensCarrinhoProduto();
-            //    produto.Id = item.Produto.Id;
-            //    produto.Nome = item.Produto.Nome;
-            //    produtos.Add(produto);
-            //}
-
-            //responseItens.Produtos = produtos;
-
-
-
-            //return responseItens;
         }
     }
 }

@@ -4,10 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ListaSupermercado.API.Filters
 {
-    public class NotificationFilter : IAsyncResultFilter
+    public class NotificationFilter : IActionFilter
     {
 
         INotificationContext _fluntcontext;
@@ -16,9 +18,20 @@ namespace ListaSupermercado.API.Filters
             _fluntcontext = fluntcontext;
         }
 
-        public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
+        public void OnActionExecuted(ActionExecutedContext context)
         {
-            await next();
+            if (_fluntcontext.Invalid)
+            {
+                context.Result = new ObjectResult(_fluntcontext.Notifications)
+                {
+                    StatusCode = StatusCodes.Status400BadRequest
+                };
+            }
         }
+
+        public void OnActionExecuting(ActionExecutingContext context) { }
+
+
     }
+
 }

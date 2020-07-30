@@ -21,19 +21,6 @@ namespace ListaSupermercado.Application.UseCase
 
             var carrinhosEntity = await _repoCarrinho.ObterTodosCarrinhos();
             return _mapper.Map<IEnumerable<ResponseCarrinho>>(carrinhosEntity);
-
-            //var listaCarrinhos = new List<ResponseCarrinho>();
-            //foreach (var item in carrinhosEntity)
-            //{
-            //    ResponseCarrinho responseItem = new ResponseCarrinho();
-            //    responseItem.Id = item.Id;
-            //    responseItem.Nome = item.Nome;
-            //    listaCarrinhos.Add(responseItem);
-            //}
-            
-            //ResponseTodosCarrinhos responseTodos = new ResponseTodosCarrinhos();
-            //responseTodos.Carrinhos = new List<ResponseCarrinho>(listaCarrinhos);
-            //return responseTodos;
         }
     }
 
