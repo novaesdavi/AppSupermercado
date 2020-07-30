@@ -2,7 +2,7 @@
 using FluentValidation;
 using ListaSupermercado.Application.Model;
 
-namespace ListaSupermercado.API.Filters
+namespace ListaSupermercado.API.Model
 {
     public class ProdutoValidator : AbstractValidator<RequestProduto>
     {

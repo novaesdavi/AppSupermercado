@@ -48,21 +48,19 @@ namespace ListaSupermercado.API
                 options.ResponseHeader = "X-Correlation-Id";
                 options.UpdateTraceIdentifier = false;
             });
-            
+
             services.AddRegitry();
             services.AddFluntNotificationContext();
             services.AddMvc(options =>
             {
-                //options.Filters.Add(new Flunt.Notifications.Notifiable();
-
                 options.Filters.Add(typeof(NotificationFilter));
-                //});
+
             }).AddFluentValidation(options =>
             {
                 options.RegisterValidatorsFromAssemblyContaining<Startup>();
             });
             services.AddAutoMapper(typeof(MapperGeral));
-            //Mapper.AssertConfigurationIsValid();
+
             services.AddControllers();
             services.AddSwaggerDocument();
 
@@ -78,11 +76,8 @@ namespace ListaSupermercado.API
 
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
 
             app.UseCorrelationId();
 
