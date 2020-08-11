@@ -13,11 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListaSupermercado.API.Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListaSupermercado.Integracao.Tests", "test\ListaSupermercado.Integracao.Tests\ListaSupermercado.Integracao.Tests.csproj", "{949F2156-8E17-432D-84E6-B9B6757F5DF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListaSupermercado.Application", "src\ListaSupermercado.Application\ListaSupermercado.Application.csproj", "{A59F652B-C566-4207-AA0D-2CD194691514}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListaSupermercado.Application", "src\ListaSupermercado.Application\ListaSupermercado.Application.csproj", "{A59F652B-C566-4207-AA0D-2CD194691514}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListaSupermercado.Domain", "src\ListaSupermercado.Domain\ListaSupermercado.Domain.csproj", "{504EFA45-03FB-419E-A446-E94AF9747FA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listasupermercado.Infrastructure", "src\Listasupermercado.InfraStructure\Listasupermercado.Infrastructure.csproj", "{61BE4A32-5400-42F7-BD05-8E6287618F17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Listasupermercado.Infrastructure", "src\Listasupermercado.InfraStructure\Listasupermercado.Infrastructure.csproj", "{61BE4A32-5400-42F7-BD05-8E6287618F17}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +103,18 @@ Global
 		{61BE4A32-5400-42F7-BD05-8E6287618F17}.Release|x64.Build.0 = Release|Any CPU
 		{61BE4A32-5400-42F7-BD05-8E6287618F17}.Release|x86.ActiveCfg = Release|Any CPU
 		{61BE4A32-5400-42F7-BD05-8E6287618F17}.Release|x86.Build.0 = Release|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Debug|x64.Build.0 = Debug|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Debug|x86.Build.0 = Debug|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Release|x64.ActiveCfg = Release|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Release|x64.Build.0 = Release|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Release|x86.ActiveCfg = Release|Any CPU
+		{1566B4A8-0EFC-4AD9-92C6-C3F13A961170}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

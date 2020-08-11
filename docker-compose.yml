@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  listasupermercado.api:
+    image: ${DOCKER_REGISTRY-}listasupermercadoapi
+    build:
+      context: .
+      dockerfile: src/ListaSupermercado.API/Dockerfile
+  listasupermercado.db:
+    image: "mcr.microsoft.com/mssql/server"
+        environment:
+          SA_PASSWORD: "teste123"
+          ACCEPT_EULA: "Y"
