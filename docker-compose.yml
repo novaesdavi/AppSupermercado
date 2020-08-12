@@ -1,13 +1,17 @@
 version: '3.4'
-
+networks:
+  supermercado-network:
+    driver: bridge
 services:
   listasupermercado.api:
-    image: ${DOCKER_REGISTRY-}listasupermercadoapi
+    image: listasupermercadoapi:latest
     build:
       context: .
-      dockerfile: src/ListaSupermercado.API/Dockerfile
+      dockerfile: src/ListaSupermercado.API/Docker/api.dockerfile
+      network: supermercado-network
   listasupermercado.db:
-    image: "mcr.microsoft.com/mssql/server"
-        environment:
-          SA_PASSWORD: "teste123"
-          ACCEPT_EULA: "Y"
+    image: listasupermercadodb:latest
+    build:
+      context: .
+      dockerfile: src/ListaSupermercado.API/Docker/db.dockerfile
+      network: supermercado-network
