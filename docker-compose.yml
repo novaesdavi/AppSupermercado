@@ -11,6 +11,9 @@ services:
       network: supermercado-network
   listasupermercado.db:
     image: listasupermercadodb:latest
+    container_name: listasupermercadodb
+    ports:
+      - "1433:1433"
     build:
       context: .
       dockerfile: src/ListaSupermercado.API/Docker/db.dockerfile
